@@ -77,6 +77,34 @@ const createPlanet = (size, texture, position, ring) => {
 //create mercury :
 const mercury = createPlanet(3.2, "../src/img/mercury.jpg", 28)
 
+//create venus :
+const venus = createPlanet(5.8, "../src/img/venus.jpg", 44)
+
+//create earth :
+const earth = createPlanet(6, "../src/img/earth.jpg", 62)
+
+//create mars :
+const mars = createPlanet(4, "../src/img/mars.jpg", 78)
+
+//create jupiter :
+const jupiter = createPlanet(12, "../src/img/jupiter.jpg", 78)
+
+//create pluto :
+const pluto = createPlanet(2.8, "../src/img/pluto.jpg", 216)
+
+//create neptune :
+const neptune = createPlanet(7, "../src/img/neptune.jpg", 200)
+
+
+//create uranus :
+const uranus = createPlanet(7, "../src/img/uranus.jpg", 176,{
+    innerRadius:7,
+    outerRadius:12,
+    texture: "../src/img/uranusring.png"
+})
+
+
+
 //create saturn :
 const saturn = createPlanet(10, "../src/img/saturn.jpg", 138,{
     innerRadius:10,
@@ -86,32 +114,38 @@ const saturn = createPlanet(10, "../src/img/saturn.jpg", 138,{
 
 
 
-//create saturn :
-// const saturnRingGeo = new THREE.RingGeometry(10,20,32)
-// const saturnRingMat = new THREE.MeshBasicMaterial({
-//     map:textureLoader.load('../src/img/saturn ring.png'),
-//     side: THREE.DoubleSide
-// })
-// const saturnRing = new THREE.Mesh(saturnRingGeo,saturnRingMat)
-// saturnObj.add(saturnRing)
-
-// saturnRing.position.x=138
-// saturnRing.rotation.x=-0.5 * Math.PI
-
-
-
-
 
 
 const pointLight = new THREE.PointLight("white", 2, 300)
 scene.add(pointLight)
+
 //animate function
 function animate() {
-    // requestAnimationFrame(animate)
+
+    //SELF ROTATION:
     sun.rotateY(0.004)
     mercury.mesh.rotateY(0.004)
-    mercury.Obj.rotateY(0.010)
+    venus.mesh.rotateY(0.002)
+    earth.mesh.rotateY(0.002)
+    mars.mesh.rotateY(0.018)
+    jupiter.mesh.rotateY(0.004)
+    saturn.mesh.rotateY(0.038)
+    uranus.mesh.rotateY(0.003)
+    neptune.mesh.rotateY(0.032)
+    pluto.mesh.rotateY(0.008)
+    
+    //AROUND SUN ROTATION: 
+    mercury.Obj.rotateY(0.004)
+    venus.Obj.rotateY(0.0015)
+    earth.Obj.rotateY(0.002)
+    mars.Obj.rotateY(0.008)
+    jupiter.Obj.rotateY(0.004)
     saturn.Obj.rotateY(0.0009)
+    uranus.Obj.rotateY(0.0018)
+    neptune.Obj.rotateY(0.0011)
+    pluto.Obj.rotateY(0.00060)
+
+
     saturn.mesh.rotateY(0.038)
     renderer.render(scene, camera)
 }
